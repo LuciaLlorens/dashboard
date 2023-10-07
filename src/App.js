@@ -1,22 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import api from './api.json';
+import Termometro from './componentes/Termometro';
+import DiaYHorario from './componentes/DiaYHorario';
+import Temperaturas from './componentes/Temperaturas';
+import CuadroBloques from './componentes/CuadroBloques';
+import CuadroTemperatura from './componentes/CuadroTemperatura';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='izquierda'>
+          <Termometro temperatura={api.current_weather.temperature} />
+          <DiaYHorario/>
+          <Temperaturas/>
+        </div>
+
+        <div className='derecha'>
+          <div className='temperaturaDiaria'> 
+            <h3> Hoy </h3>
+            <CuadroTemperatura/>
+          </div>
+          <div className='aspectosDestacados'> 
+            <h3> Aspectos destacados </h3>
+            <CuadroBloques/>
+          </div>
+        </div>  
       </header>
     </div>
   );
