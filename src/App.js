@@ -12,8 +12,8 @@ function App() {
       <header className="App-header">
         <div className='izquierda'>
           <Termometro temperatura={api.current_weather.temperature} />
-          <DiaYHorario/>
-          <Temperaturas/>
+          <DiaYHorario time={api.current_weather.time}/>
+          <Temperaturas temperaturaMaxima={api.daily.temperature_2m_max} temperaturaMinima={api.daily.temperature_2m_min}/>
         </div>
 
         <div className='derecha'>
