@@ -5,8 +5,8 @@ function Temperaturas(props) {
 
     return (
         <div className='temperaturas'>
-            <div className='temperaturaMaxima'>{props.temperaturaMaxima} |</div>
-            <div className='temperaturaMinima'>| {props.temperaturaMinima} </div>
+            <div className='temperaturaMaxima'>{props.temperaturaMaxima}{props.unidadMedidaTemperaturaMaxima} |</div>
+            <div className='temperaturaMinima'>| {props.temperaturaMinima}{props.unidadMedidaTemperaturaMinima} </div>
         </div>
     );
 }

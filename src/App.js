@@ -7,13 +7,16 @@ import CuadroBloques from './componentes/CuadroBloques';
 import CuadroTemperatura from './componentes/CuadroTemperatura';
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
         <div className='izquierda'>
           <Termometro temperatura={api.current_weather.temperature} />
           <DiaYHorario time={api.current_weather.time}/>
-          <Temperaturas temperaturaMaxima={api.daily.temperature_2m_max} temperaturaMinima={api.daily.temperature_2m_min}/>
+          <Temperaturas temperaturaMaxima={api.daily.temperature_2m_max} temperaturaMinima={api.daily.temperature_2m_min}
+            unidadMedidaTemperaturaMaxima={api.daily_units.temperature_2m_max} unidadMedidaTemperaturaMinima={api.daily_units.temperature_2m_min}
+          />
         </div>
 
         <div className='derecha'>

@@ -1,40 +1,82 @@
 import "../App.css";
+//para llamar desde este componente todo lo que tiene api
+import api from '../api.json';
 
 function CuadroBloques() {
-    
+  //extraigo de api.json los horarios de salida y puesta de sol
+  const horaSalidaSol = new Date(api.daily.sunrise).getHours();
+  const minutosSalidaSol = new Date(api.daily.sunrise).getMinutes();
+  const horaPuestaSol = new Date(api.daily.sunset).getHours();
+  const minutosPuestaSol = new Date(api.daily.sunset).getMinutes();
+  const indiceCalidadAire = api.hourly.european_aqi[0];
+  //lo hago con variables y no con estados para prevenir los problemas por demasiados renderizados (ya lo había intentado, je)
+  let calidadDelAire = "";
+  let humedad = "";
+
+  //establezco condiciones para que se muestre am o pm según si es más del mediodía o no
+  const obtenerPeriodo = (hora) => {
+    return hora >= 12 ? "PM" : "AM";
+  };
+
+  if (api.hourly.relativehumidity_2m < 60) {
+    humedad = "normal";
+  } else {
+    humedad = "alta";
+  };
+  
+  //Como está medido en metros, convierto a km
+  const convertirMetrosAKilometros = (metros) => {
+    return (metros / 1000).toFixed(2); // Redondeamos a 2 decimales
+  };
+
+  // Determinar la calidad del aire según el índice
+  if (indiceCalidadAire <= 50) {
+    calidadDelAire = "buena";
+  } else if (indiceCalidadAire <= 100) {
+    calidadDelAire = "moderada";
+  } else if (indiceCalidadAire <= 150) {
+    calidadDelAire = "no muy saludable";
+  } else if (indiceCalidadAire <= 200) {
+    calidadDelAire = "no saludable";
+  } else {
+    calidadDelAire = "para nada saludable";
+  };
 
     return (
         <div className='cuadroBloques'>
               <div className='primeraFila'>
                 <div className='bloques'>
                   <p> índice UV </p>
-                  <p> 6 </p>
+                  {/*Llamo desde api a indice UV*/}
+                  <p> {api.daily.uv_index_max} </p>
                 </div>
                 <div className='bloques'> 
                   <p> Estado del viento </p>
-                  <p> 11.12km/h </p>
+                  {/*Llamo desde api al estado del viento y su unidad de medida*/}
+                  <p> {api.current_weather.windspeed}{api.daily_units.windspeed_10m_max} </p>
                 </div>
                 <div className='bloques'> 
                   <p> Salida y puesta del sol </p>
-                  <p> 6:35 </p>
-                  <p> 19:30 </p>
+                  {/*muestro el horario, restándole según sea necesario (sistema 12hs, no 24hs), los minutos y si es am o pm*/}
+                  <p> {horaSalidaSol > 12 ? horaSalidaSol - 12 : horaSalidaSol}:{minutosSalidaSol < 10 ? '0' : ''}{minutosSalidaSol}{obtenerPeriodo(horaSalidaSol)} </p>
+                  <p> {horaPuestaSol > 12 ? horaPuestaSol - 12 : horaPuestaSol}:{minutosPuestaSol < 10 ? '0' : ''}{minutosPuestaSol}{obtenerPeriodo(horaPuestaSol)} </p>
                 </div>
               </div>
               <div className='segundaFila'>
                 <div className='bloques'>
                   <p> Humedad </p>
-                  <p> 12% </p>
-                  <p> normal </p>
+                  <p> {api.hourly.relativehumidity_2m[0]}{api.hourly_units.relativehumidity_2m} </p>
+                  <p> {humedad} </p>
                 </div>
                 <div className='bloques'>
                   <p> Visibilidad </p>
-                  <p> 6.1km </p>
-                  <p> promedio </p>
+                  <p> {convertirMetrosAKilometros(api.hourly.visibility[0])}km </p>
+                  <p> buena </p>
                 </div>
                 <div className='bloques'>
                   <p> Calidad del aire </p>
-                  <p> 105 </p>
-                  <p> insalubre </p>
+                  <p> {api.hourly.european_aqi[0]} </p>
+                  <p> {calidadDelAire} </p>
                </div>
               </div>
             </div>
