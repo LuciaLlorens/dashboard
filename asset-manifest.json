@@ -1,15 +1,19 @@
 {
   "files": {
-    "main.css": "/argproapi/static/css/main.af508121.css",
-    "main.js": "/argproapi/static/js/main.b01e1c98.js",
+    "main.css": "/argproapi/static/css/main.7e03d691.css",
+    "main.js": "/argproapi/static/js/main.86749a24.js",
     "static/js/787.a3aa9cb3.chunk.js": "/argproapi/static/js/787.a3aa9cb3.chunk.js",
+    "static/media/Ghibli.png": "/argproapi/static/media/Ghibli.75dba080d522cd00f187.png",
+    "static/media/ParcialmenteNubladoYNeblinoso.svg": "/argproapi/static/media/ParcialmenteNubladoYNeblinoso.8c1766876ac3f23dbc4839d0226f602c.svg",
     "index.html": "/argproapi/index.html",
-    "main.af508121.css.map": "/argproapi/static/css/main.af508121.css.map",
-    "main.b01e1c98.js.map": "/argproapi/static/js/main.b01e1c98.js.map",
+    "static/media/Dia.svg": "/argproapi/static/media/Dia.4c82810e685aca17144a40289b509a6c.svg",
+    "static/media/Noche.svg": "/argproapi/static/media/Noche.439f475ce1c653f43b03167072432f51.svg",
+    "main.7e03d691.css.map": "/argproapi/static/css/main.7e03d691.css.map",
+    "main.86749a24.js.map": "/argproapi/static/js/main.86749a24.js.map",
     "787.a3aa9cb3.chunk.js.map": "/argproapi/static/js/787.a3aa9cb3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.af508121.css",
-    "static/js/main.b01e1c98.js"
+    "static/css/main.7e03d691.css",
+    "static/js/main.86749a24.js"
   ]
 }
