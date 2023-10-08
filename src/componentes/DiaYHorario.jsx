@@ -1,4 +1,5 @@
 import "../App.css";
+import ParcialmenteNubladoYNeblinoso from '../img/ParcialmenteNubladoYNeblinoso.svg';
 
 function DiaYHorario(props) {
     //Obtengo fecha de api.json
@@ -15,8 +16,8 @@ function DiaYHorario(props) {
 
     return (
         <div className='díaYHorario'>
-            <div className='sticker'> Sticker </div>
-            <div className='díaYHorario'> {nombreDiaSemana}, {hora}:{minutos < 10 ? '0' : ''}{minutos}</div>
+            <img className='sticker' src={ParcialmenteNubladoYNeblinoso} alt="parcialmente nublado y neblinoso"></img>
+            <div className='díaYHorarioTexto'> {nombreDiaSemana}, {hora}:{minutos < 10 ? '0' : ''}{minutos}</div>
         </div>
     );
 }

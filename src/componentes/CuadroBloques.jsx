@@ -1,6 +1,8 @@
 import "../App.css";
 //para llamar desde este componente todo lo que tiene api
 import api from '../api.json';
+import SalidaSol from '../img/SalidaSol.png';
+import PuestaSol from '../img/PuestaSol.png';
 
 function CuadroBloques() {
   //extraigo de api.json los horarios de salida y puesta de sol
@@ -46,35 +48,41 @@ function CuadroBloques() {
         <div className='cuadroBloques'>
               <div className='primeraFila'>
                 <div className='bloques'>
-                  <p> índice UV </p>
+                  <p className="titulosBloques"> índice UV </p>
                   {/*Llamo desde api a indice UV*/}
                   <p> {api.daily.uv_index_max} </p>
                 </div>
                 <div className='bloques'> 
-                  <p> Estado del viento </p>
+                  <p className="titulosBloques"> Estado del viento </p>
                   {/*Llamo desde api al estado del viento y su unidad de medida*/}
                   <p> {api.current_weather.windspeed}{api.daily_units.windspeed_10m_max} </p>
                 </div>
                 <div className='bloques'> 
-                  <p> Salida y puesta del sol </p>
+                  <p className="titulosBloques"> Salida y puesta del sol </p>
                   {/*muestro el horario, restándole según sea necesario (sistema 12hs, no 24hs), los minutos y si es am o pm*/}
-                  <p> {horaSalidaSol > 12 ? horaSalidaSol - 12 : horaSalidaSol}:{minutosSalidaSol < 10 ? '0' : ''}{minutosSalidaSol}{obtenerPeriodo(horaSalidaSol)} </p>
-                  <p> {horaPuestaSol > 12 ? horaPuestaSol - 12 : horaPuestaSol}:{minutosPuestaSol < 10 ? '0' : ''}{minutosPuestaSol}{obtenerPeriodo(horaPuestaSol)} </p>
+                  <div className="columnasSol">
+                    <img className="flechaSalidaSol" src={SalidaSol} alt="Salida del sol"></img>
+                    <p> {horaSalidaSol > 12 ? horaSalidaSol - 12 : horaSalidaSol}:{minutosSalidaSol < 10 ? '0' : ''}{minutosSalidaSol}{obtenerPeriodo(horaSalidaSol)} </p>
+                  </div>
+                  <div className="columnasSol">
+                    <img className="flechaPuestaSol" src={PuestaSol} alt="Puesta del sol"></img>
+                    <p> {horaPuestaSol > 12 ? horaPuestaSol - 12 : horaPuestaSol}:{minutosPuestaSol < 10 ? '0' : ''}{minutosPuestaSol}{obtenerPeriodo(horaPuestaSol)} </p>
+                  </div>
                 </div>
               </div>
               <div className='segundaFila'>
                 <div className='bloques'>
-                  <p> Humedad </p>
+                  <p className="titulosBloques"> Humedad </p>
                   <p> {api.hourly.relativehumidity_2m[0]}{api.hourly_units.relativehumidity_2m} </p>
                   <p> {humedad} </p>
                 </div>
                 <div className='bloques'>
-                  <p> Visibilidad </p>
+                  <p className="titulosBloques"> Visibilidad </p>
                   <p> {convertirMetrosAKilometros(api.hourly.visibility[0])}km </p>
                   <p> buena </p>
                 </div>
                 <div className='bloques'>
-                  <p> Calidad del aire </p>
+                  <p className="titulosBloques"> Calidad del aire </p>
                   <p> {api.hourly.european_aqi[0]} </p>
                   <p> {calidadDelAire} </p>
                </div>

@@ -1,38 +1,102 @@
+.App {
+  background-color: rgb(140, 213, 238);
+  background-image: url("img/Ghibli.png");
+  background-size: cover;
+  background-position: center center;
+  min-height: 100vh;
+}
+
 .App-header {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: lightblue;
-  min-height: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   color: white;
   font-weight: bold;
+  margin-top: 5px;
+}
+
+.appClima {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .izquierda {
-  margin-right: 50px;;
+  margin-top: 10px;
+  display: flex;
+  margin-right: 10px;
   flex-direction: column;
-  border: 6px solid red;
+}
+
+.lugar {
+  margin: 20px;
 }
 
 .termometro {
-  border: 6px solid yellow;
-  width: 200px;
-  height: 200px;
+  border: 6px solid rgb(245, 182, 35);
+  border-radius: 150px;
+  width: 300px;
+  height: 300px;
+}
+
+.sticker {
+  width: 70px;
+}
+
+.díaYHorarioTexto {
+  margin: 20px;
+  margin-top: 5px;
+  font-size: 25px;
 }
 
 .temperaturas {
+  background-color: rgb(255, 221, 141);
+  border-radius: 15px;
+  display:flex;
+  flex-direction: row;
+  color: grey;
+}
+
+.primerCuadro {
+  display:flex;
+  flex-direction: column;
+  border-right: 2px solid white;
+  margin-left: 33px;
+  margin-top: 5px;
+}
+
+.segundoCuadro {
+  margin-top: 5px;
+  margin-left: 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+.primeraLinea {
+  text-align: center;
+}
+
+.segundaLinea {
   display:flex;
   flex-direction: row;
 }
 
+.dia {
+  width: 50px;
+}
+
+.noche {
+  width: 50px;
+}
+
 .derecha {
-  margin-left: 50px;
-  position: right;
+  margin-top: 10px;
+  margin-left: 10px;
+  position: relative;
   flex-direction: column;
-  border:  6px solid green;
-  display: inline;
+  display: flex;
 }
 
 .cuadroBloques {
@@ -54,19 +118,50 @@
 }
 
 .bloques {
-  border: 6px solid blue;
-  flex-basis: calc(33.33% - 10px); /* Controla el ancho de cada bloque */
-  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 5px;
+  text-align: center;
+  color: rgb(0, 136, 255);
+  width: 181px;
+  height: 115px;
+  border: 4px solid rgb(255, 221, 141);
+}
+
+.titulosBloques {
+  color: grey;
+  margin: 5px;
+}
+
+p {
+  margin: 5px;
+}
+.columnasSol {
+  display: flex;
+  flex-direction: row;
   text-align: center;
 }
 
-/* Para mantener tres bloques por fila en dos filas */
-@media screen and (max-width: 768px) {
-  .cuadroBloques {
-    flex-direction: column; /* Cambiar a una sola columna */
-  }
+.flechaSalidaSol {
+  width: 30px;
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  background-color: rgb(218, 218, 218);
+  padding: 2px;
+}
 
-  .bloques {
-    width: 100%; /* Ancho completo en una sola columna */
-  }
+.flechaPuestaSol {
+  width: 30px;
+  height: 25px;
+  margin-right: 10px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  background-color: rgb(218, 218, 218);
+  padding: 2px;
 }
