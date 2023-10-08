@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Aplicación de Clima
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+El proyecto consiste en crear una aplicación React que contenga datos del clima. 
 
-## Available Scripts
+## Comenzando 🚀
 
-In the project directory, you can run:
+Este proyecto es realizado en el marco del trabajo práctico número 1 del curso "Front-End de Sitio Web Usando Api" dictado por FAMAF-UNC, en el plan Argentina Programa 4.0.
+En esta primera instancia no uso una API, sino que tengo un componente estático json llamado api.json, donde ingreso los datos necesarios para que posteriormente devuelva la aplicación web de clima.
 
-### `npm start`
+### Pre-requisitos 📋
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Para poder ejecutar la aplicaciónn solamente se necesita una aplicación que permita abrir páginas web, como Google Chrome, Firefox, Opera, Internet Explorer, etc. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Ejecutando las pruebas ⚙️
 
-### `npm test`
+Este segmento informativo está en construcción. Todavía no he tenido el tiempo de dar lugar a escribir los problemas que he tenido con este proyecto.
+Principalmente han sido en relación a los gráficos, los cuales hice con svg y con la librería chartjs.
+Fue compleja la realización del termómetro en relazión a los grados de ángulo y los °C extraídos del archivo api.json. Así como también en relación a la desvirtuación de la línea de color cuando se superara los 20°.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Construido con 🛠️
 
-### `npm run build`
+* React.
+* Visual Studio Code.
+* svg.
+* chartjs.
+* dashboard: https://slidemodel.com/wp-content/uploads/21868-01-vintage-weather-dashboard-powerpoint-template-16x9-1.jpg
+* Reconozco así también la utilización de medios alternativos para solucionar problemas o dudas que surgieran, como ChatGPT, prinicpalmente para poder manejar svg y chartjs, las cuestiones de los gráficos.
+* paleta de colores realizada por mí, teniendo como inspiración el dashboard dado por les docentes.
+* imagenes extraídas de Google.
+* íconos de meteocons: https://bas.dev/work/meteocons
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Versionado 📌
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Esta es la primera versión no finalizada del proyecto en React. Quedan completar los comentarios en los archivos, así como también mejorar algunas cuestiones de estilo y agregado de gráficos (por ej. una progress-line).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Autores ✒️
 
-### `npm run eject`
+* **Lucía Alén Llorens** - [LuciaLlorens](https://github.com/LuciaLlorens)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Licencia 📄
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Este proyecto no se encuentra bajo licencia.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Expresiones de Gratitud 🎁
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Quiero agradecer a les profesores de Argentina Programa 4.0 por, además de sus claras explicaciones, poner a diposición de les alumnes las grabaciones de las clases y demás recursos, los cuales me posibilitaron llevar adelante el proyecto encomendado.
+* Agradezco también a mi compañero que me brindó su opinión sobre cualquier problema que pude tener y me colaboró a tener más tiempo para dedicar al trabajo. Así como también a avanzar con las cuestiones de los gráficos (svg y chart)
+* Agradezco también al creador del template, sin cuya estructura habría estado muy perdida para llevar adelante el archivo README: [Villanuevand](https://github.com/Villanuevand). 

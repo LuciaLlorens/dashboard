@@ -12,6 +12,9 @@ function Termometro(props) {
       // Cálculo de las coordenadas finales del path
       const xFinal = 200 + 150 * Math.cos((angulo - 135) * (Math.PI / 180));
       const yFinal = 200 + 150 * Math.sin((angulo - 135) * (Math.PI / 180));
+
+      // por problemas del ángulo de color cuando se superaba 20 hice esto para luego poder modificar el
+      // de la línea de color en el path
       let auxiliarPath = 0;
       if (temperatura>20) {
             auxiliarPath = 1;
