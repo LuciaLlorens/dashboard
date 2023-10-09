@@ -14,15 +14,15 @@ Para poder ejecutar la aplicaciónn solamente se necesita una aplicación que pe
 ## Ejecutando las pruebas ⚙️
 
 Este segmento informativo está en construcción. Todavía no he tenido el tiempo de dar lugar a escribir los problemas que he tenido con este proyecto.
-Principalmente han sido en relación a los gráficos, los cuales hice con svg y con la librería chartjs.
+Principalmente han sido en relación a los gráficos, los cuales hice con svg y con la librería chartjs y ReatChart2.
 Fue compleja la realización del termómetro en relazión a los grados de ángulo y los °C extraídos del archivo api.json. Así como también en relación a la desvirtuación de la línea de color cuando se superara los 20°.
 
 ## Construido con 🛠️
 
 * React.
 * Visual Studio Code.
-* svg.
-* chartjs.
+* svg (con tutoriales en youtube)
+* chartjs y ReactChart2 (con tutoriales en youtube).
 * dashboard: https://slidemodel.com/wp-content/uploads/21868-01-vintage-weather-dashboard-powerpoint-template-16x9-1.jpg
 * Reconozco así también la utilización de medios alternativos para solucionar problemas o dudas que surgieran, como ChatGPT, prinicpalmente para poder manejar svg y chartjs, las cuestiones de los gráficos.
 * paleta de colores realizada por mí, teniendo como inspiración el dashboard dado por les docentes.

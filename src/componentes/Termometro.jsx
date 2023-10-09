@@ -1,7 +1,9 @@
 import "../App.css";
 
 function Termometro(props) {
-      const temperatura = props.temperatura; // Temperatura sacada de api.json
+      const temperatura = props.temperatura; // Temperatura sacada de api.json. Asigno el props
+      // defino unos auxiliares que van a permitir la conversión de temperatura a angulos para poder graficar en el svg. 
+      // Las formulas fueron aportadas por ChatGPT
       const minTemperatura = -20; // Temperatura mínima en el rango
       const maxTemperatura = 40; // Temperatura máxima en el rango
       const minAngulo = -90; // Ángulo correspondiente a la temperatura mínima
@@ -9,12 +11,13 @@ function Termometro(props) {
 
       const angulo = (temperatura - minTemperatura) * ((maxAngulo - minAngulo) / (maxTemperatura - minTemperatura)) + minAngulo;
 
-      // Cálculo de las coordenadas finales del path
+      // Cálculo de las coordenadas finales del path (la barra azul que complementa la indicación de la flecha (por chatGPT)). 
+      // No podía simplemente pasarle el ángulo porque path me pedia coordenadas x,y
       const xFinal = 200 + 150 * Math.cos((angulo - 135) * (Math.PI / 180));
       const yFinal = 200 + 150 * Math.sin((angulo - 135) * (Math.PI / 180));
 
-      // por problemas del ángulo de color cuando se superaba 20 hice esto para luego poder modificar el
-      // de la línea de color en el path
+      // por problemas del ángulo de color cuando se superaba 20 hice esto para luego poder modificar
+      // un valor del path que tiene que ver con el trazado del arco cuando su abertura es mayor o menor a 180°
       let auxiliarPath = 0;
       if (temperatura>20) {
             auxiliarPath = 1;
@@ -30,7 +33,7 @@ function Termometro(props) {
                   <circle cx="200" cy="350" r="90" fill="rgb(245, 182, 35)" />
                   <text x="200"  y="350" text-anchor="middle" dominant-baseline="middle" fontSize="60" fill="white">{props.temperatura}°C</text>
                   
-                 <g>
+                 <g> !-- acá defino y oriento los ticks del grafico.--
                         <line x1="290" y1="200"
                               x2="310" y2="200"
                               stroke="white"
@@ -67,7 +70,8 @@ function Termometro(props) {
                               stroke-width="5"
                               transform="rotate(135 200 200)"/>
                   </g>
-                  <g transform={`rotate(${angulo} 200 200)`}>
+                  <g transform={`rotate(${angulo} 200 200)`}> !-- esta es la linea indicadora. Primero le di una rotación para que inicialmente quede en 0°C.--
+                  !-- Y a todo eso le di otra rotación segun el ángulo.--
                   <line x1="170" y1="200"
                         x2="320" y2="200"
                         stroke="red"
@@ -76,7 +80,7 @@ function Termometro(props) {
                         transform="rotate(-135 200 200)"/>
                   </g>
                   <circle cx="200" cy="200" r="15" fill="rgb(245, 182, 35)"/>
-                  <g>
+                  <g> !--acá defino los valores de cada tick--
                         <text fill="white" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(135 200 200) rotate(-135 325 200)">-20</text>
                         <text fill="white" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(180 200 200) rotate(180 325 200)">-10</text>
                         <text fill="white" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(-135 200 200) rotate(135 325 200)">0</text>

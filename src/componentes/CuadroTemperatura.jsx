@@ -1,4 +1,5 @@
 import "../App.css";
+// importo lo necesario para el gráfico
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -25,6 +26,7 @@ ChartJS.register(
   TimeScale,
 );
 
+// algunas configuraciones del gráfico.
 const options = {
     fill: true,
     scales: {
@@ -43,7 +45,7 @@ const options = {
     },
   };
   
-
+// defino las variables que llevan el eje x y el eje y
 function CuadroTemperatura(props) {
     const lista = props.datosCuadro.time;
     const horas = lista.map((i) => i.slice(11,16));
@@ -70,3 +72,4 @@ function CuadroTemperatura(props) {
 }
 
 export default CuadroTemperatura;
+//A este componente lo hice mirando un videito de youtube, sinceramente no entendí todo cada parte de lo que aquí se presenta.
