@@ -1,6 +1,6 @@
 {
   "homepage": "http://luciallorens.github.io/dashboard",
-  "name": "argproapi",
+  "name": "dashboard",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
