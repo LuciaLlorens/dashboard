@@ -46,29 +46,33 @@ const options = {
   };
   
 // defino las variables que llevan el eje x y el eje y
-function CuadroTemperatura(props) {
-    const lista = props.datosCuadro.time;
-    const horas = lista.map((i) => i.slice(11,16));
-    const temperaturas = props.datosCuadro.temperature_2m;
-    const data = {
-        labels: horas,
+function CuadroTemperatura({time, temperature_2m , cargando}) {
+  const lista = time;
+  const horas = lista.map((i) => i.slice(11,16));
+  const temperaturas = temperature_2m;
+  const data = {
+    labels: horas,
 
-        datasets: [
-            {
-              label: "Temperatura",
-              data: temperaturas,
-              borderColor: "rgb(245, 182, 35)",
-              backgroundColor: "rgb(245, 182, 35)",
-              fill: true,
-            },
-          ],
-    };
+    datasets: [
+      {
+        label: "Temperatura",
+        data: temperaturas,
+        borderColor: "rgb(245, 182, 35)",
+        backgroundColor: "rgb(245, 182, 35)",
+        fill: true,
+      },
+    ],
+  };
 
+  if (cargando) {
+    return <h2>Cargando</h2>;
+  } else {
     return (
         <div className='cuadroTemperatura'>
             <Bar data={data} options={options} />
         </div>
     );
+  }
 }
 
 export default CuadroTemperatura;

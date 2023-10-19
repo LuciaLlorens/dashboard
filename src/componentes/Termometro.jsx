@@ -1,7 +1,6 @@
 import "../App.css";
 
-function Termometro(props) {
-      const temperatura = props.temperatura; // Temperatura sacada de api.json. Asigno el props
+function Termometro({ temperatura, cargando }) {
       // defino unos auxiliares que van a permitir la conversión de temperatura a angulos para poder graficar en el svg. 
       // Las formulas fueron aportadas por ChatGPT
       const minTemperatura = -20; // Temperatura mínima en el rango
@@ -22,7 +21,13 @@ function Termometro(props) {
       if (temperatura>20) {
             auxiliarPath = 1;
       }
-      return (
+
+      if (cargando) {
+            return (
+                  <h2>Cargando</h2>
+            )
+      } else {
+           return (
             <>
             <svg className="termometro" width="400" height="400" viewBox="0 0 400 400">
                   <circle cx="200" cy="200" r="100" fill="transparent" stroke="grey" stroke-width="5"/>
@@ -31,7 +36,7 @@ function Termometro(props) {
 
                   !--Aquí es está el círculo en el que se muestra la temperatura actual. Así también los datos rescatados de api.json por medio de props desde el padre--
                   <circle cx="200" cy="350" r="90" fill="rgb(245, 182, 35)" />
-                  <text x="200"  y="350" text-anchor="middle" dominant-baseline="middle" fontSize="60" fill="white">{props.temperatura}°C</text>
+                  <text x="200"  y="350" text-anchor="middle" dominant-baseline="middle" fontSize="60" fill="white">{temperatura}°C</text>
                   
                  <g> !-- acá defino y oriento los ticks del grafico.--
                         <line x1="290" y1="200"
@@ -91,7 +96,9 @@ function Termometro(props) {
                   </g>
             </svg>
             </>
-    );
+    ); 
+      }
+      
 }
 
 export default Termometro;

@@ -2,14 +2,17 @@ import "../App.css";
 import Dia from "../img/Dia.svg";
 import Noche from "../img/Noche.svg";
 
-function Temperaturas(props) {
-
-
+function Temperaturas({temperaturaMaxima, temperaturaMinima, unidadMedidaTemperaturaMaxima, unidadMedidaTemperaturaMinima, cargando}) {
+    if (cargando) {
+        return (
+              <h2>Cargando</h2>
+        )
+  } else {
     return (
         <div className='temperaturas'>
             <div className="primerCuadro">
                 <div className="primeraLinea">
-                    <div className='temperaturaMaxima'>{props.temperaturaMaxima}{props.unidadMedidaTemperaturaMaxima}</div>
+                    <div className='temperaturaMaxima'>{temperaturaMaxima}{unidadMedidaTemperaturaMaxima}</div>
                 </div>
                 <div className="segundaLinea">
                     <p> Máxima </p>
@@ -18,7 +21,7 @@ function Temperaturas(props) {
             </div>
             <div className="segundoCuadro">
                 <div className="primeraLinea">
-                    <div className='temperaturaMinima'>{props.temperaturaMinima}{props.unidadMedidaTemperaturaMinima}</div>
+                    <div className='temperaturaMinima'>{temperaturaMinima}{unidadMedidaTemperaturaMinima}</div>
                 </div>
                <div className="segundaLinea">
                     <p> Mínima </p>
@@ -27,6 +30,7 @@ function Temperaturas(props) {
             </div>
         </div>
     );
+  }  
 }
 
 export default Temperaturas;

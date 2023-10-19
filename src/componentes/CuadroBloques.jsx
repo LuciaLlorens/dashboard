@@ -1,18 +1,15 @@
 import "../App.css";
 //para llamar desde este componente todo lo que tiene api
-import api from '../api.json';
 import SalidaSol from '../img/SalidaSol.png';
 import PuestaSol from '../img/PuestaSol.png';
 
-function CuadroBloques() {
+function CuadroBloques({cargando, sunrise, sunset, precipitation, relativehumidity_2m, visibility, windspeed, uv_index_max}) {
   //extraigo de api.json los horarios de salida y puesta de sol
-  const horaSalidaSol = new Date(api.daily.sunrise).getHours();
-  const minutosSalidaSol = new Date(api.daily.sunrise).getMinutes();
-  const horaPuestaSol = new Date(api.daily.sunset).getHours();
-  const minutosPuestaSol = new Date(api.daily.sunset).getMinutes();
-  const indiceCalidadAire = api.hourly.european_aqi[0];
+  const horaSalidaSol = new Date(sunrise).getHours();
+  const minutosSalidaSol = new Date(sunrise).getMinutes();
+  const horaPuestaSol = new Date(sunset).getHours();
+  const minutosPuestaSol = new Date(sunset).getMinutes();
   //lo hago con variables y no con estados para prevenir los problemas por demasiados renderizados (ya lo había intentado, je)
-  let calidadDelAire = "";
   let humedad = "";
 
   //establezco condiciones para que se muestre am o pm según si es más del mediodía o no
@@ -20,7 +17,7 @@ function CuadroBloques() {
     return hora >= 12 ? "PM" : "AM";
   };
 
-  if (api.hourly.relativehumidity_2m < 60) {
+  if (relativehumidity_2m < 60) {
     humedad = "normal";
   } else {
     humedad = "alta";
@@ -31,31 +28,21 @@ function CuadroBloques() {
     return (metros / 1000).toFixed(2); // Redondeamos a 2 decimales
   };
 
-  // Determinar la calidad del aire según el índice
-  if (indiceCalidadAire <= 50) {
-    calidadDelAire = "buena";
-  } else if (indiceCalidadAire <= 100) {
-    calidadDelAire = "moderada";
-  } else if (indiceCalidadAire <= 150) {
-    calidadDelAire = "no muy saludable";
-  } else if (indiceCalidadAire <= 200) {
-    calidadDelAire = "no saludable";
-  } else {
-    calidadDelAire = "para nada saludable";
-  };
-
-    return (
+ if (cargando) {
+  return <h2>Cargando</h2>
+ } else {
+  return (
         <div className='cuadroBloques'>
               <div className='primeraFila'>
                 <div className='bloques'>
                   <p className="titulosBloques"> índice UV </p>
                   {/*Llamo desde api a indice UV*/}
-                  <p> {api.daily.uv_index_max} </p>
+                  <p> {uv_index_max[0]} </p>
                 </div>
                 <div className='bloques'> 
                   <p className="titulosBloques"> Estado del viento </p>
                   {/*Llamo desde api al estado del viento y su unidad de medida*/}
-                  <p> {api.current_weather.windspeed}{api.daily_units.windspeed_10m_max} </p>
+                  <p> {windspeed}km/h </p>
                 </div>
                 <div className='bloques'> 
                   <p className="titulosBloques"> Salida y puesta del sol </p>
@@ -73,22 +60,23 @@ function CuadroBloques() {
               <div className='segundaFila'>
                 <div className='bloques'>
                   <p className="titulosBloques"> Humedad </p>
-                  <p> {api.hourly.relativehumidity_2m[0]}{api.hourly_units.relativehumidity_2m} </p>
+                  <p> {relativehumidity_2m[0]}% </p>
                   <p> {humedad} </p>
                 </div>
                 <div className='bloques'>
                   <p className="titulosBloques"> Visibilidad </p>
-                  <p> {convertirMetrosAKilometros(api.hourly.visibility[0])}km </p>
+                  <p> {convertirMetrosAKilometros(visibility[0])}km </p>
                   <p> buena </p>
                 </div>
                 <div className='bloques'>
-                  <p className="titulosBloques"> Calidad del aire </p>
-                  <p> {api.hourly.european_aqi[0]} </p>
-                  <p> {calidadDelAire} </p>
+                  <p className="titulosBloques"> Probabilidades de precipitación </p>
+                  <p> {precipitation[0]}% </p>
                </div>
               </div>
             </div>
     );
+ }
+  
 }
 
 export default CuadroBloques;

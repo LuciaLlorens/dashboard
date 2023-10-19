@@ -1,9 +1,9 @@
 import "../App.css";
 import ParcialmenteNubladoYNeblinoso from '../img/ParcialmenteNubladoYNeblinoso.svg';
 
-function DiaYHorario(props) {
+function DiaYHorario({time, cargando}) {
     //Obtengo fecha de api.json
-    const fecha = new Date(props.time);
+    const fecha = new Date(time);
     //Defino los nombres de los días de la semana
     const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
     //Obtengo el número del día de la semana (0 = Domingo, 1 = Lunes, etc.)
@@ -14,12 +14,18 @@ function DiaYHorario(props) {
     const hora = fecha.getHours();
     const minutos = fecha.getMinutes();
 
+    if (cargando) {
+        return (
+              <h2>Cargando</h2>
+        )
+  } else {
     return (
         <div className='díaYHorario'>
             <img className='sticker' src={ParcialmenteNubladoYNeblinoso} alt="parcialmente nublado y neblinoso"></img>
             <div className='díaYHorarioTexto'> {nombreDiaSemana}, {hora}:{minutos < 10 ? '0' : ''}{minutos}</div>
         </div>
     );
+  } 
 }
 
 export default DiaYHorario;
