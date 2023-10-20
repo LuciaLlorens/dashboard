@@ -90,9 +90,9 @@ function Termometro({ temperatura, cargando }) {
                         <text fill="white" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(180 200 200) rotate(180 325 200)">-10</text>
                         <text fill="white" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(-135 200 200) rotate(135 325 200)">0</text>
                         <text fill="white" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(-90 200 200) rotate(90 325 200)">10</text>
-                        <text fill="black" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(-45 200 200) rotate(45 325 200)">20</text>
-                        <text fill="black" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(0 200 200) rotate(0 325 200)">30</text>
-                        <text fill="black" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(45 200 200) rotate(-45 325 200)">40</text>
+                        <text fill="white" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(-45 200 200) rotate(45 325 200)">20</text>
+                        <text fill="white" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(0 200 200) rotate(0 325 200)">30</text>
+                        <text fill="white" x="325"  y="200" text-anchor="middle" dominant-baseline="middle" transform="rotate(45 200 200) rotate(-45 325 200)">40</text>
                   </g>
             </svg>
             </>

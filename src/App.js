@@ -30,57 +30,53 @@ function App() {
 
   if (cargando) {
     return (
-      <>
-        <h2 className='cargando'>Cargando</h2>
-        <div className="spinner">
-          <div></div>   
-          <div></div>    
-          <div></div>    
-          <div></div>    
-          <div></div>    
-          <div></div>    
-          <div></div>    
-          <div></div>    
-          <div></div>    
-          <div></div>    
-        </div>
-      </> 
+      <div className="contenedorCargando">
+          <h2 className='cargando'>Cargando...</h2>
+      </div> 
     )
   }
 
     return (
     <div className="App">
       <header className="App-header">
-        <div className='appClima'>
-          <div className='izquierda'>
-            <p className='lugar'>Córdoba, Argentina</p>
-            {!cargando && <Termometro temperatura={apiData.current_weather.temperature} cargando={cargando}/>}
-            {!cargando && <DiaYHorario time={apiData.current_weather.time} cargando={cargando}/>}
-            {!cargando && <Temperaturas temperaturaMaxima={apiData.daily.temperature_2m_max} temperaturaMinima={apiData.daily.temperature_2m_min}
-              unidadMedidaTemperaturaMaxima={apiData.daily_units.temperature_2m_max} unidadMedidaTemperaturaMinima={apiData.daily_units.temperature_2m_min}
-              cargando={cargando}
-            />}
-          </div>
+        <div className='contenedorPrincipal'>
+          <div className='appClima'>
+            <div className='izquierdaYDerecha'>
+              <div className='izquierda'>
+              <p className='lugar'>Córdoba, Argentina</p>
+              {!cargando && <Termometro temperatura={apiData.current_weather.temperature} cargando={cargando}/>}
+              {!cargando && <DiaYHorario time={apiData.current_weather.time} cargando={cargando}/>}
+              {!cargando && <Temperaturas temperaturaMaxima={apiData.daily.temperature_2m_max} temperaturaMinima={apiData.daily.temperature_2m_min}
+                unidadMedidaTemperaturaMaxima={apiData.daily_units.temperature_2m_max} unidadMedidaTemperaturaMinima={apiData.daily_units.temperature_2m_min}
+                cargando={cargando}
+              />}
+            </div>
 
-          <div className='derecha'>
-            <div className='temperaturaDiaria'> 
-              <h3> Hoy </h3>
-              {!cargando && <CuadroTemperatura apiData={apiData} time={apiData.hourly.time} temperature_2m={apiData.hourly.temperature_2m} cargando={cargando}/>}
+            <div className='derecha'>
+              <div className='aspectosDestacados'> 
+                <h3 className='tituloAspectosDestacados'> Aspectos destacados </h3>
+                {!cargando && <CuadroBloques apiData={apiData} sunrise={apiData.daily.sunrise} sunset={apiData.daily.sunset}
+                  precipitation={apiData.hourly.precipitation_probability} relativehumidity_2m={apiData.hourly.relativehumidity_2m}
+                  visibility={apiData.hourly.visibility} windspeed={apiData.current_weather.windspeed}
+                  uv_index_max={apiData.hourly.uv_index} cargando={cargando}
+                  />
+                    }
+              </div>
             </div>
-            <div className='aspectosDestacados'> 
-              <h3> Aspectos destacados </h3>
-              {!cargando && <CuadroBloques apiData={apiData} sunrise={apiData.daily.sunrise} sunset={apiData.daily.sunset}
-                precipitation={apiData.hourly.precipitation_probability} relativehumidity_2m={apiData.hourly.relativehumidity_2m}
-                visibility={apiData.hourly.visibility} windspeed={apiData.current_weather.windspeed}
-                uv_index_max={apiData.hourly.uv_index} cargando={cargando}
-                />
-                }
             </div>
-          </div> 
-        </div>
+
+            <div className='abajo'>
+              <div className='temperaturaDiaria'> 
+                <h3 className='hoy'> Hoy </h3>
+                {!cargando && <CuadroTemperatura apiData={apiData} time={apiData.hourly.time} temperature_2m={apiData.hourly.temperature_2m} cargando={cargando}/>}
+              </div>
+            </div> 
+          </div>
         
-        <div className='appTransporte'>
-        </div>
+          <div className='appTransporte'>
+
+          </div>
+        </div>  
       </header>
     </div>
   );

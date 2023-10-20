@@ -31,10 +31,15 @@ const options = {
     fill: true,
     scales: {
     x:{
-
+      ticks: {
+        color: 'black', // Color de las etiquetas del eje X
+      },
     },
       y: {
         min: 0,
+        ticks: {
+          color: 'black', // Color de las etiquetas del eje Y
+        },
       },
     },
     responsive: true,

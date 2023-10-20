@@ -2,7 +2,7 @@
   background-color: rgb(140, 213, 238);
   background-image: url("img/Ghibli.png");
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   min-height: 100vh;
 }
 
@@ -10,128 +10,77 @@
   font-family: Arial, Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
   color: white;
   font-weight: bold;
-  margin-top: 5px;
 }
 
-.appClima {
+.contenedorPrincipal {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: stretch; /* Para que ambas columnas tengan la misma altura */
+  min-height: 100vh;
+  background-color: rgb(140, 213, 238);
+  background-image: url("img/Ghibli.png");
+  background-size: cover;
+  background-position: center center;
 }
 
-/*Encontré este sticker de loading en internet:*/
+.contenedorCargando {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  height: 100%;
+}
+
 .cargando {
-  position: absolute;
-  text-align: center;;
+  font-size: 24px;
+  font-weight: bold;
 }
 
-.spinner {
-  position: absolute;
-  align-items: center;
-  width: 9px;
-  height: 9px;
-}
-
-.spinner div {
-  position: absolute;
-  width: 50%;
-  height: 150%;
-  background: #000000;
-  transform: rotate(calc(var(--rotation) * 1deg)) translate(0, calc(var(--translation) * 1%));
-  animation: spinner-fzua35 1s calc(var(--delay) * 1s) infinite ease;
-}
-
-.spinner div:nth-child(1) {
-  --delay: 0.1;
-  --rotation: 36;
-  --translation: 150;
-}
-
-.spinner div:nth-child(2) {
-  --delay: 0.2;
-  --rotation: 72;
-  --translation: 150;
-}
-
-.spinner div:nth-child(3) {
-  --delay: 0.3;
-  --rotation: 108;
-  --translation: 150;
-}
-
-.spinner div:nth-child(4) {
-  --delay: 0.4;
-  --rotation: 144;
-  --translation: 150;
-}
-
-.spinner div:nth-child(5) {
-  --delay: 0.5;
-  --rotation: 180;
-  --translation: 150;
-}
-
-.spinner div:nth-child(6) {
-  --delay: 0.6;
-  --rotation: 216;
-  --translation: 150;
-}
-
-.spinner div:nth-child(7) {
-  --delay: 0.7;
-  --rotation: 252;
-  --translation: 150;
-}
-
-.spinner div:nth-child(8) {
-  --delay: 0.8;
-  --rotation: 288;
-  --translation: 150;
-}
-
-.spinner div:nth-child(9) {
-  --delay: 0.9;
-  --rotation: 324;
-  --translation: 150;
-}
-
-.spinner div:nth-child(10) {
-  --delay: 1;
-  --rotation: 360;
-  --translation: 150;
-}
-/*Finaliza la parte del sticker y continuamos con la programación habitual*/
-
-.izquierda {
-  margin-top: 10px;
+/* Estilos para la columna de la App de Clima */
+.appClima {
+  flex: 1; /* Ocupa el espacio disponible en la mitad izquierda */
+  padding: 20px; /* Añade un poco de espacio entre el contenido y los bordes */
   display: flex;
-  margin-right: 10px;
   flex-direction: column;
 }
 
+.izquierdaYDerecha {
+  display: flex;
+  flex-direction: row;
+  margin: 0px;
+}
+
+.izquierda {
+  display: flex;
+  margin-right: 20px;
+  flex-direction: column;
+  width: 250px;
+  height: 417px;
+}
+
 .lugar {
-  margin: 20px;
+  margin: 5px;
 }
 
 .termometro {
   border: 6px solid rgb(245, 182, 35);
   border-radius: 150px;
-  width: 300px;
-  height: 300px;
+  width: 200px;
+  height: 200px;
 }
 
 .sticker {
-  width: 70px;
+  width: 60px;
 }
 
 .díaYHorarioTexto {
-  margin: 20px;
+  margin: 10px;
   margin-top: 5px;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .temperaturas {
@@ -140,19 +89,22 @@
   display:flex;
   flex-direction: row;
   color: grey;
+  width: 243px; /* Establece el ancho deseado */
+  max-width: 100%; /* Limita el ancho máximo */
 }
 
 .primerCuadro {
   display:flex;
   flex-direction: column;
   border-right: 2px solid white;
-  margin-left: 33px;
+  margin-left: 5px;
   margin-top: 5px;
 }
 
 .segundoCuadro {
   margin-top: 5px;
-  margin-left: 25px;
+  margin-left: 2px;
+  margin-right: 5px;
   display: flex;
   flex-direction: column;
 }
@@ -175,28 +127,31 @@
 }
 
 .derecha {
-  margin-top: 10px;
-  margin-left: 10px;
+  margin-left: 5px;
+  margin: 0px;
   position: relative;
   flex-direction: column;
   display: flex;
 }
 
+.tituloAspectosDestacados {
+  margin: 0px;
+}
+
 .cuadroBloques {
+  display: flex;
+  flex-direction: row;
+}
+
+.primeraFila {
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Espacio entre los bloques y los bordes */
 }
 
-.primeraFila {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between; /* Espacio entre los bloques y los bordes */
-}
-
 .segundaFila {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between; /* Espacio entre los bloques y los bordes */
 }
 
@@ -208,14 +163,15 @@
   margin: 5px;
   text-align: center;
   color: rgb(0, 136, 255);
-  width: 181px;
-  height: 115px;
+  width: 144px;
+  height: 112px;
   border: 4px solid rgb(255, 221, 141);
 }
 
 .titulosBloques {
   color: grey;
   margin: 5px;
+  font-size: 15px;
 }
 
 p {
@@ -247,4 +203,23 @@ p {
   margin-bottom: 5px;
   background-color: rgb(218, 218, 218);
   padding: 2px;
+}
+
+.hoy {
+  margin: 5px;
+  margin-top: 10px;
+}
+
+.cuadroTemperatura {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 220px;
+  margin-right: 145px;
+}
+
+/* Estilos para la columna de la App de Transporte */
+.appTransporte {
+  flex: 1; /* Ocupa el espacio disponible en la mitad derecha */
+  padding: 20px; /* Añade un poco de espacio entre el contenido y los bordes */
 }
