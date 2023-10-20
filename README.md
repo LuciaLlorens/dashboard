@@ -4,8 +4,9 @@ El proyecto consiste en crear una aplicación React que contenga datos del clima
 
 ## Comenzando 🚀
 
-Este proyecto es realizado en el marco del trabajo práctico número 1 del curso "Front-End de Sitio Web Usando Api" dictado por FAMAF-UNC, en el plan Argentina Programa 4.0.
-En esta primera instancia no uso una API, sino que tengo un componente estático json llamado api.json, donde ingreso los datos necesarios para que posteriormente devuelva la aplicación web de clima.
+Este proyecto es realizado en el marco del trabajo práctico número 2 del curso "Front-End de Sitio Web Usando Api" dictado por FAMAF-UNC, en el plan Argentina Programa 4.0.
+En la primera instancia no usé una API, sino que tengo un componente estático json llamado api.json, donde ingreso los datos necesarios para que posteriormente devuelva la aplicación web de clima.
+En esta segunda instancia sí tengo acceso a una API aportada por les docentes, de donde saco los datos para mi aplicación React.
 
 ### Pre-requisitos 📋
 
@@ -16,11 +17,13 @@ Para poder ejecutar la aplicaciónn solamente se necesita una aplicación que pe
 Este segmento informativo está en construcción. Todavía no he tenido el tiempo de dar lugar a escribir los problemas que he tenido con este proyecto.
 Principalmente han sido en relación a los gráficos, los cuales hice con svg y con la librería chartjs y ReatChart2.
 Fue compleja la realización del termómetro en relazión a los grados de ángulo y los °C extraídos del archivo api.json. Así como también en relación a la desvirtuación de la línea de color cuando se superara los 20°.
+Para la segunda versión del proyecto tuve algunos problemas para poder conectar la API a la página web, pero no implicaron muchísimo problema, simplemente eran cuestiones de cómo pasar las props de un lado a otro; lo mismo sucedió con remodificar el diseño para que la App de clima ocupara solo la mitad de la pantalla. Ambos procedimientos me llevaron bastantes horas, pero no fueron por la complejidad necesariamente, sino por el tiempo disponible y los problemas de organización en la revisión de cada componente; la mayoría de las cosas las fui corrigiendo a medida que me iban saltando los errores en la página web.
 
 ## Construido con 🛠️
 
 * React.
 * Visual Studio Code.
+* API de clima: https://api.open-meteo.com/v1/forecast?latitude=-34.9215&longitude=-57.9545&hourly=temperature_2m,relativehumidity_2m,precipitation_probability,weathercode,visibility,windspeed_10m,uv_index,is_day&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=America%2FSao_Paulo&forecast_days=1
 * svg (con tutoriales en youtube)
 * chartjs y ReactChart2 (con tutoriales en youtube).
 * dashboard: https://slidemodel.com/wp-content/uploads/21868-01-vintage-weather-dashboard-powerpoint-template-16x9-1.jpg
@@ -31,7 +34,7 @@ Fue compleja la realización del termómetro en relazión a los grados de ángul
 
 ## Versionado 📌
 
-Esta es la primera versión no finalizada del proyecto en React. Quedan completar los comentarios en los archivos, así como también mejorar algunas cuestiones de estilo y agregado de gráficos (por ej. una progress-line).
+Esta es la segunda versión del proyecto en React. Quedan mejorar algunas cuestiones de estilo (por ejemplo agregar mas stickers) y también podrían mejorarse algunas cuestiones en torno a la API, para hacer a una mayor dinámica de la página.
 
 ## Autores ✒️
 
