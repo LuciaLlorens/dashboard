@@ -1,3 +1,8 @@
+/* @preserve
+ * Leaflet 1.9.4, a JS library for interactive maps. https://leafletjs.com
+ * (c) 2010-2023 Vladimir Agafonkin, (c) 2010-2011 CloudMade
+ */
+
 /*!
  * @kurkle/color v0.3.2
  * https://github.com/kurkle/color#readme
