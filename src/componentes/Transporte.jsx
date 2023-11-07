@@ -3,12 +3,17 @@ import {useState, useEffect} from "react";
 import {MapContainer, TileLayer, Marker, Popup} from "react-leaflet";
 
 function Transporte() {
+  //estado de la linea que va a seleccionar el usuario
   const [lineaSeleccionada, setLineaSeleccionada] = useState(null);
+  //para almacenar los datos de la api
   const [lineasMapa, setLineasMapa] = useState(null);
   const [cargando, setCargando] = useState(false);
+  //desde qué posición quiero que se muestre el mapa
   const [posicionMapa, setPosicionMapa] = useState([-34.6, -58.4]);
+  // Esta es la Api de transporte, le dejo el espacio para que la linea seleccionada por el usuario sea buscada según el código
   const apiURLTrasnporte = `https://datosabiertos-transporte-apis.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?route_id=${lineaSeleccionada}&client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6`;
- const lineasColectivo = {
+  //estas son las traducciones del routeShortName a RouteId para hacer en filtro en el fetch, como nos indicaron en el google docs 
+  const lineasColectivo = {
     "7A Toma Nueva": 1,
     "7A Barrio Policial": 2,
     "7B a Retiro": 1609,
@@ -39,6 +44,7 @@ function Transporte() {
     "321A a Est.Castelar": 1467,
   };
 
+  //Aquí llamo a la api de transporte, al igual que hice con api de clima, solo que en este caso no en useEffect
   const llamadaApi = () => {
     setCargando(true);
     fetch(apiURLTrasnporte)
@@ -54,36 +60,53 @@ function Transporte() {
     });
   }
 
-    useEffect(() => {
-      llamadaApi();
-    }, [lineaSeleccionada]);
+  // UseEffect para cargar datos cuando cambia la línea seleccionada o al iniciar la página web
+  useEffect(() => {
+    //cuando lineaSeleccionada cambia se llama a llamadaApi, o al iniciar la app
+    llamadaApi();
+  }, [lineaSeleccionada]);
   
-    useEffect(() => {
-      const interval = setInterval(() => {
-        llamadaApi();
-      }, 31000);
-      return () => {
-        clearInterval(interval);
-      };
-    }, [lineaSeleccionada]);
+  // UseEffect para actualizar datos cada 31 segundos
+  useEffect(() => {
+    //lo que hace setInterval es llamar a llamadaApi cada 31 segundos, se crea un intervalo
+    const interval = setInterval(() => {
+      llamadaApi();
+    }, 31000);
+    return () => {
+      //cuando cambia lineaSeleccionada se limpia el intervalo, lo que permite que se reinicie el useEffect con la linea nueva, si es que hay
+      clearInterval(interval)};
+  }, [lineaSeleccionada]);
 
+  //retorno todo lo visual: el menú desplegable con las lineas de colectivo que convierto en array y el mapa
+
+  //En un principio pensé agregarle un botón que dijera buscar, pero después me di cuenta de que si yo fuera usuario sería un embole
+  // tener que poner buscar cada vez que quisiera buscar una línea de colectivo, así que descarté la idea y los colectivos se muestran
+  // solo con seleccionarlo.
   return (
     <div>
+      {/*este es el menú desplegable con las opciones de lineas de colectivo dispuestas anteriormente en lineasColectivo*/}
       <label className="labelSeleccion">Selecciona una línea de colectivo:</label>
+      {/*cuando se seleccione alguna de las opciones de linea se modificará lineaSeleccionada*/}
       <select onChange={(e) => {setLineaSeleccionada(e.target.value); console.log(e.target.value)}}>
         <option value="">Lineas de colectivos para seleccionar</option>
+        {/*convierto el objeto lineasColectivo en un array, y lo mapeo para no tener que escribir cada linea manualmente a continuación 
+        (con map creo varios option, uno por cada línea)*/}
         {Object.keys(lineasColectivo).map((linea) => (
           <option key={lineasColectivo[linea]} value={lineasColectivo[linea]}>
             {linea}
           </option>
         ))}
+        {/*el nombre de las lineas se muestran en el menú desplegable y los códigos se ponen como valores*/}
       </select>
 
+      {/*este es el mapa cuyo código se encuentra en la página de leaflet, cambié el tamaño para que sea acorde a la página web*/}
       <MapContainer className="mapa" style={{height: '640px', width: '800px'}} center={posicionMapa} zoom={10} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        {/*Si lineasMapa tiene contenido como corresponde, marcarmos el colectivo en la posición y creamos el 
+        popup que tiene los datos del colectivo*/}
         {lineasMapa && lineasMapa.length > 0 ? (lineasMapa.map((marker) => (
           <Marker position={[marker.latitude, marker.longitude]}>
             <Popup className="popupBondi">
@@ -98,6 +121,7 @@ function Transporte() {
         ))) : (
           <p>No podemos acceder a la información que se solicita</p>
         )}
+        {/*En el caso de que no se pueda acceder a lineasMapa se muestra este párrafo de aviso*/}
       </MapContainer>
     </div>
   );
