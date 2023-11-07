@@ -52,6 +52,19 @@ function Transporte() {
       setCargando(false);
     });
   }
+  
+    useEffect(() => {
+      llamadaApi();
+    }, [lineaSeleccionada]);
+  
+    useEffect(() => {
+      const interval = setInterval(() => {
+        llamadaApi();
+      }, 31000);
+      return () => {
+        clearInterval(interval);
+      };
+    }, [lineaSeleccionada]);
 
   return (
     <div>
