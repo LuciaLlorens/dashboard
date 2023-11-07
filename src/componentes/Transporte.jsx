@@ -1,3 +1,4 @@
+import "../App.css";
 import {useState, useEffect} from "react";
 import {MapContainer, TileLayer, Marker, Popup} from "react-leaflet";
 
