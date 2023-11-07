@@ -1,5 +1,5 @@
 import "../App.css";
-import {useState, useEffect} from "react";
+import {useState, useEffect, useCallback} from "react";
 import {MapContainer, TileLayer, Marker, Popup} from "react-leaflet";
 
 function Transporte() {
@@ -45,7 +45,9 @@ function Transporte() {
   };
 
   //Aquí llamo a la api de transporte, al igual que hice con api de clima, solo que en este caso no en useEffect
-  const llamadaApi = () => {
+  // uso useCallBack porque sino me saltaba todo el tiempo un warning por usar llamadaApi en los useEffects de más abajo,
+  // esto es debido a que sino cambiaba en cada render
+  const llamadaApi = useCallback(() => {
     setCargando(true);
     fetch(apiURLTrasnporte)
     .then((resp) => resp.json())
@@ -58,13 +60,14 @@ function Transporte() {
       console.error(ex);
       setCargando(false);
     });
-  }
+  }, [apiURLTrasnporte]);
 
   // UseEffect para cargar datos cuando cambia la línea seleccionada o al iniciar la página web
   useEffect(() => {
     //cuando lineaSeleccionada cambia se llama a llamadaApi, o al iniciar la app
     llamadaApi();
-  }, [lineaSeleccionada]);
+    console.log()
+  }, [lineaSeleccionada, llamadaApi]);
   
   // UseEffect para actualizar datos cada 31 segundos
   useEffect(() => {
@@ -75,7 +78,7 @@ function Transporte() {
     return () => {
       //cuando cambia lineaSeleccionada se limpia el intervalo, lo que permite que se reinicie el useEffect con la linea nueva, si es que hay
       clearInterval(interval)};
-  }, [lineaSeleccionada]);
+  }, [lineaSeleccionada, llamadaApi]);
 
   //retorno todo lo visual: el menú desplegable con las lineas de colectivo que convierto en array y el mapa
 
@@ -98,7 +101,6 @@ function Transporte() {
         ))}
         {/*el nombre de las lineas se muestran en el menú desplegable y los códigos se ponen como valores*/}
       </select>
-
       {/*este es el mapa cuyo código se encuentra en la página de leaflet, cambié el tamaño para que sea acorde a la página web*/}
       <MapContainer className="mapa" style={{height: '640px', width: '800px'}} center={posicionMapa} zoom={10} scrollWheelZoom={true}>
         <TileLayer
