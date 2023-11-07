@@ -52,7 +52,7 @@ function Transporte() {
       setCargando(false);
     });
   }
-  
+
     useEffect(() => {
       llamadaApi();
     }, [lineaSeleccionada]);
@@ -83,7 +83,7 @@ function Transporte() {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {lineasMapa?.map((marker) => (
+        {lineasMapa && lineasMapa.length > 0 ? (lineasMapa.map((marker) => (
           <Marker position={[marker.latitude, marker.longitude]}>
             <Popup className="popupBondi">
               <ul>
@@ -94,7 +94,9 @@ function Transporte() {
               </ul>
             </Popup>
           </Marker>
-        ))}
+        ))) : (
+          <p>No podemos acceder a la información que se solicita</p>
+        )}
       </MapContainer>
     </div>
   );
