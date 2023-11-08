@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/dashboard/static/css/main.d619cb1a.css",
-    "main.js": "/dashboard/static/js/main.2350c50e.js",
+    "main.js": "/dashboard/static/js/main.12b47d27.js",
     "static/js/787.545aecf5.chunk.js": "/dashboard/static/js/787.545aecf5.chunk.js",
     "static/media/Ghibli.png": "/dashboard/static/media/Ghibli.75dba080d522cd00f187.png",
     "static/media/ParcialmenteNubladoYNeblinoso.svg": "/dashboard/static/media/ParcialmenteNubladoYNeblinoso.8c1766876ac3f23dbc4839d0226f602c.svg",
@@ -9,11 +9,11 @@
     "static/media/Dia.svg": "/dashboard/static/media/Dia.4c82810e685aca17144a40289b509a6c.svg",
     "static/media/Noche.svg": "/dashboard/static/media/Noche.439f475ce1c653f43b03167072432f51.svg",
     "main.d619cb1a.css.map": "/dashboard/static/css/main.d619cb1a.css.map",
-    "main.2350c50e.js.map": "/dashboard/static/js/main.2350c50e.js.map",
+    "main.12b47d27.js.map": "/dashboard/static/js/main.12b47d27.js.map",
     "787.545aecf5.chunk.js.map": "/dashboard/static/js/787.545aecf5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.d619cb1a.css",
-    "static/js/main.2350c50e.js"
+    "static/js/main.12b47d27.js"
   ]
 }
