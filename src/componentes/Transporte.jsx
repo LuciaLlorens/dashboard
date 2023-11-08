@@ -57,16 +57,21 @@ function Transporte() {
       console.log("Info de Transporte: ", data);
     })
     .catch((ex) => {
-      console.error(ex);
+      console.error("error", ex);
       setCargando(false);
     });
   }, [apiURLTrasnporte]);
+
+  // Actualiza el estado con la opción seleccionada
+  const seleccionBondi = (e) => {
+    setLineaSeleccionada(e.target.value); 
+    console.log(e.target.value);
+  };
 
   // UseEffect para cargar datos cuando cambia la línea seleccionada o al iniciar la página web
   useEffect(() => {
     //cuando lineaSeleccionada cambia se llama a llamadaApi, o al iniciar la app
     llamadaApi();
-    console.log()
   }, [lineaSeleccionada, llamadaApi]);
   
   // UseEffect para actualizar datos cada 31 segundos
@@ -90,7 +95,7 @@ function Transporte() {
       {/*este es el menú desplegable con las opciones de lineas de colectivo dispuestas anteriormente en lineasColectivo*/}
       <label className="labelSeleccion">Selecciona una línea de colectivo:</label>
       {/*cuando se seleccione alguna de las opciones de linea se modificará lineaSeleccionada*/}
-      <select onChange={(e) => {setLineaSeleccionada(e.target.value); console.log(e.target.value)}}>
+      <select onChange={seleccionBondi}>
         <option value="">Lineas de colectivos para seleccionar</option>
         {/*convierto el objeto lineasColectivo en un array, y lo mapeo para no tener que escribir cada linea manualmente a continuación 
         (con map creo varios option, uno por cada línea)*/}
