@@ -109,14 +109,14 @@ function Transporte() {
         />
         {/*Si lineasMapa tiene contenido como corresponde, marcarmos el colectivo en la posición y creamos el 
         popup que tiene los datos del colectivo*/}
-        {lineasMapa && lineasMapa.length > 0 ? (lineasMapa.map((marker) => (
-          <Marker position={[marker.latitude, marker.longitude]}>
+        {lineasMapa && lineasMapa.length > 0 ? (lineasMapa.map((bondi) => (
+          <Marker position={[bondi.latitude, bondi.longitude]}>
             <Popup className="popupBondi">
               <ul>
-                <li>Linea: {marker.route_short_name}</li>
-                <li>Recorrido: {marker.trip_headsign}</li>
-                <li>Empresa: {marker.agency_name}</li>
-                <li>Velocidad: {Math.round(marker.speed)} km/h</li>
+                <li>Linea: {bondi.route_short_name}</li>
+                <li>Recorrido: {bondi.trip_headsign}</li>
+                <li>Empresa: {bondi.agency_name}</li>
+                <li>Velocidad: {Math.round(bondi.speed)} km/h</li>
               </ul>
             </Popup>
           </Marker>
