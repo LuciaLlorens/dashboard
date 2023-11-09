@@ -8,8 +8,6 @@ function Transporte() {
   //para almacenar los datos de la api
   const [lineasMapa, setLineasMapa] = useState(null);
   const [cargando, setCargando] = useState(false);
-  //desde qué posición quiero que se muestre el mapa
-  const [posicionMapa, setPosicionMapa] = useState([-34.6, -58.4]);
   // Esta es la Api de transporte, le dejo el espacio para que la linea seleccionada por el usuario sea buscada según el código
   const apiURLTrasnporte = `https://datosabiertos-transporte-apis.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?route_id=${lineaSeleccionada}&client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6`;
   //estas son las traducciones del routeShortName a RouteId para hacer en filtro en el fetch, como nos indicaron en el google docs 
@@ -90,48 +88,54 @@ function Transporte() {
   //En un principio pensé agregarle un botón que dijera buscar, pero después me di cuenta de que si yo fuera usuario sería un embole
   // tener que poner buscar cada vez que quisiera buscar una línea de colectivo, así que descarté la idea y los colectivos se muestran
   // solo con seleccionarlo.
-  return (
-    <div>
-      {/*este es el menú desplegable con las opciones de lineas de colectivo dispuestas anteriormente en lineasColectivo*/}
-      <label className="labelSeleccion">Selecciona una línea de colectivo:</label>
-      {/*cuando se seleccione alguna de las opciones de linea se modificará lineaSeleccionada*/}
-      <select onChange={seleccionBondi}>
-        <option value="">Lineas de colectivos para seleccionar</option>
-        {/*convierto el objeto lineasColectivo en un array, y lo mapeo para no tener que escribir cada linea manualmente a continuación 
-        (con map creo varios option, uno por cada línea)*/}
-        {Object.keys(lineasColectivo).map((linea) => (
-          <option key={lineasColectivo[linea]} value={lineasColectivo[linea]}>
-            {linea}
-          </option>
-        ))}
-        {/*el nombre de las lineas se muestran en el menú desplegable y los códigos se ponen como valores*/}
-      </select>
-      {/*este es el mapa cuyo código se encuentra en la página de leaflet, cambié el tamaño para que sea acorde a la página web*/}
-      <MapContainer className="mapa" style={{height: '640px', width: '800px'}} center={posicionMapa} zoom={10} scrollWheelZoom={true}>
-        <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        />
-        {/*Si lineasMapa tiene contenido como corresponde, marcarmos el colectivo en la posición y creamos el 
-        popup que tiene los datos del colectivo*/}
-        {lineasMapa && lineasMapa.length > 0 ? (lineasMapa.map((bondi) => (
-          <Marker position={[bondi.latitude, bondi.longitude]}>
-            <Popup className="popupBondi">
-              <ul>
-                <li>Linea: {bondi.route_short_name}</li>
-                <li>Recorrido: {bondi.trip_headsign}</li>
-                <li>Empresa: {bondi.agency_name}</li>
-                <li>Velocidad: {Math.round(bondi.speed)} km/h</li>
-              </ul>
-            </Popup>
-          </Marker>
-        ))) : (
-          <p>No podemos acceder a la información que se solicita</p>
-        )}
-        {/*En el caso de que no se pueda acceder a lineasMapa se muestra este párrafo de aviso*/}
-      </MapContainer>
-    </div>
-  );
+  if (cargando) {
+    return (
+          <h2>Cargando</h2>
+    )
+  } else {
+    return (
+      <div>
+        {/*este es el menú desplegable con las opciones de lineas de colectivo dispuestas anteriormente en lineasColectivo*/}
+        <label className="labelSeleccion">Selecciona una línea de colectivo:</label>
+        {/*cuando se seleccione alguna de las opciones de linea se modificará lineaSeleccionada*/}
+        <select onChange={seleccionBondi}>
+          <option value="">Lineas de colectivos para seleccionar</option>
+          {/*convierto el objeto lineasColectivo en un array, y lo mapeo para no tener que escribir cada linea manualmente a continuación 
+          (con map creo varios option, uno por cada línea)*/}
+          {Object.keys(lineasColectivo).map((linea) => (
+            <option key={lineasColectivo[linea]} value={lineasColectivo[linea]}>
+              {linea}
+            </option>
+          ))}
+          {/*el nombre de las lineas se muestran en el menú desplegable y los códigos se ponen como valores*/}
+        </select>
+        {/*este es el mapa cuyo código se encuentra en la página de leaflet, cambié el tamaño para que sea acorde a la página web*/}
+        <MapContainer className="mapa" style={{height: '640px', width: '800px'}} center={[-34.6, -58.4]} zoom={10} scrollWheelZoom={true}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          {/*Si lineasMapa tiene contenido como corresponde, marcarmos el colectivo en la posición y creamos el 
+          popup que tiene los datos del colectivo*/}
+          {lineasMapa && lineasMapa.length > 0 ? (lineasMapa.map((bondi) => (
+            <Marker position={[bondi.latitude, bondi.longitude]}>
+              <Popup className="popupBondi">
+                <ul>
+                  <li>Linea: {bondi.route_short_name}</li>
+                  <li>Recorrido: {bondi.trip_headsign}</li>
+                  <li>Empresa: {bondi.agency_name}</li>
+                  <li>Velocidad: {Math.round(bondi.speed)} km/h</li>
+                </ul>
+              </Popup>
+            </Marker>
+          ))) : (
+            <p>No podemos acceder a la información que se solicita</p>
+          )}
+          {/*En el caso de que no se pueda acceder a lineasMapa se muestra este párrafo de aviso*/}
+        </MapContainer>
+      </div>
+    );
+  }
 }
 
 export default Transporte;

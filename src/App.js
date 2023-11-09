@@ -12,8 +12,7 @@ function App() {
   const [apiData, setApiData] = useState({});
   const [cargando, setCargando] = useState(true);
   const apiURL = "https://api.open-meteo.com/v1/forecast?latitude=-34.9215&longitude=-57.9545&hourly=temperature_2m,relativehumidity_2m,precipitation_probability,weathercode,visibility,windspeed_10m,uv_index,is_day&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset&current_weather=true&timezone=America%2FSao_Paulo&forecast_days=1";
-  // Define la línea de colectivos que deseas mostrar (debes obtener este valor de alguna manera en tu aplicación)
-  const linea = 'EjemploDeLinea';
+  const linea = "Linea";
 
   useEffect(() => {
     setCargando(true);
@@ -77,7 +76,7 @@ function App() {
           </div>
         
           <div className='appTransporte'>
-            <Transporte linea={linea} /> {/* Utiliza el componente TransporteMap y pasa la línea como prop */}
+            <Transporte linea={linea}/>
           </div>
         </div>  
       </header>
