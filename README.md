@@ -37,6 +37,7 @@ Me gustaría poder mejorar en un futuro:
 * más íconos e imagenes que sean dinámicas.
 * que app de transporte tenga modo nocturno.
 * que cuando une selecciona un colectivo que está fuera del rango de visión en el mapa, automáticamente el mapa se corra hacia donde esa línea está.
+* hacer el diseño para otros tamaños de pantalla (tablet, celulares).
 
 ## Construido con 🛠️
 
