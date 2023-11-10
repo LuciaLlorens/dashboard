@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/dashboard/static/css/main.e32e4bbb.css",
-    "main.js": "/dashboard/static/js/main.27742341.js",
+    "main.css": "/dashboard/static/css/main.7358739e.css",
+    "main.js": "/dashboard/static/js/main.ddf2813e.js",
     "static/js/787.545aecf5.chunk.js": "/dashboard/static/js/787.545aecf5.chunk.js",
     "static/media/Ghibli.png": "/dashboard/static/media/Ghibli.75dba080d522cd00f187.png",
     "static/media/GhibliNocturno3.png": "/dashboard/static/media/GhibliNocturno3.21b9097fdd2e74a48b4e.png",
@@ -9,12 +9,12 @@
     "index.html": "/dashboard/index.html",
     "static/media/Dia.svg": "/dashboard/static/media/Dia.4c82810e685aca17144a40289b509a6c.svg",
     "static/media/Noche.svg": "/dashboard/static/media/Noche.439f475ce1c653f43b03167072432f51.svg",
-    "main.e32e4bbb.css.map": "/dashboard/static/css/main.e32e4bbb.css.map",
-    "main.27742341.js.map": "/dashboard/static/js/main.27742341.js.map",
+    "main.7358739e.css.map": "/dashboard/static/css/main.7358739e.css.map",
+    "main.ddf2813e.js.map": "/dashboard/static/js/main.ddf2813e.js.map",
     "787.545aecf5.chunk.js.map": "/dashboard/static/js/787.545aecf5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e32e4bbb.css",
-    "static/js/main.27742341.js"
+    "static/css/main.7358739e.css",
+    "static/js/main.ddf2813e.js"
   ]
 }
