@@ -1,0 +1,167 @@
+{
+    "Berlín": {
+        "latitud":52.52437,
+        "longitud":13.41053,
+        "país": "Alemania"
+    },
+    "Colonia": {
+        "latitud":50.93333,
+        "longitud":6.95,
+        "país":"Alemania"
+    },
+    "Córdoba": {
+      "latitud": -31.4165,
+      "longitud": -64.1821,
+      "país": "Argentina"
+    },
+    "Corrientes": {
+      "latitud": -27.4806,
+      "longitud": -58.8341,
+      "país": "Argentina"
+    },
+    "El Cairo": {
+        "latitud":30.06263,
+        "longitud":31.24967,
+        "país":"Egipto"
+    },
+    "Estocolmo": {
+        "latitud":59.32938,
+        "longitud":18.06871,
+        "país": "Suecia"
+    },
+    "Formosa": {
+      "latitud": -26.1852,
+      "longitud": -58.1751,
+      "país": "Argentina"
+    },
+    "La Plata": {
+      "latitud": -34.9214,
+      "longitud": -57.9547,
+      "país": "Argentina"
+    },
+    "La Rioja": {
+      "latitud": -29.4111,
+      "longitud": -66.8563,
+      "país": "Argentina"
+    },
+    "Matamata": {
+        "latitud":-37.8106,
+        "longitud":175.76237,
+        "país":"Nueva Zelanda"
+    },
+    "Mendoza": {
+      "latitud": -32.8895,
+      "longitud": -68.8458,
+      "país": "Argentina"
+    },
+    "Neuquén": {
+      "latitud": -38.9516,
+      "longitud": -68.0591,
+      "país": "Argentina"
+    },
+    "Nueva Orleans": {
+        "latitud":29.95465,
+        "longitud":-90.07507,
+        "país":"Estados Unidos"
+    },
+    "Paraná": {
+      "latitud": -31.7313,
+      "longitud": -60.5110,
+      "país": "Argentina"
+    },
+    "Pekín": {
+        "latitud":39.9075,
+        "longitud":116.39723,
+        "país":"China"
+    },
+    "Posadas": {
+      "latitud": -27.3671,
+      "longitud": -55.8961,
+      "país": "Argentina"
+    },
+    "Rawson": {
+      "latitud": -43.2535,
+      "longitud": -65.3097,
+      "país": "Argentina"
+    },
+    "Resistencia": {
+      "latitud": -27.4517,
+      "longitud": -58.9866,
+      "país": "Argentina"
+    },
+    "Río Gallegos": {
+      "latitud": -51.6226,
+      "longitud": -69.2181,
+      "país": "Argentina"
+    },
+    "Salem": {
+        "latitud": 42.51954,
+        "longitud": -70.89672,
+        "país": "Estados Unidos"
+    },
+    "Salta": {
+      "latitud": -24.7859,
+      "longitud": -65.4117,
+      "país": "Argentina"
+    },
+    "S.F del Valle de Catamarca": {
+      "latitud": -28.4696,
+      "longitud": -65.7852,
+      "país": "Argentina"
+    },
+    "San Juan": {
+      "latitud": -31.5375,
+      "longitud": -68.5364,
+      "país": "Argentina"
+    },
+    "San Luis": {
+      "latitud": -33.3016,
+      "longitud": -66.3378,
+      "país": "Argentina"
+    },
+    "San Miguel de Tucumán": {
+      "latitud": -26.8167,
+      "longitud": -65.2167,
+      "país": "Argentina"
+    },
+    "Santa Fe": {
+      "latitud": -31.6333,
+      "longitud": -60.7000,
+      "país": "Argentina"
+    },
+    "Santa Rosa": {
+      "latitud": -36.6167,
+      "longitud": -64.2833,
+      "país": "Argentina"
+    },
+    "San Salvador de Jujuy": {
+      "latitud": -24.1858,
+      "longitud": -65.2995,
+      "país": "Argentina"
+    },
+    "Santiago del Estero": {
+      "latitud": -27.7951,
+      "longitud": -64.2615,
+      "país": "Argentina"
+    },
+    "Sidney": {
+        "latitud":-33.86785	,
+        "longitud":151.20732,
+        "país":"Australia"
+    },
+    "Tokio": {
+        "latitud":35.6895,
+        "longitud":139.69171,
+        "país":"Japón"
+    },
+    "Ushuaia": {
+      "latitud": -54.8019,
+      "longitud": -68.3020,
+      "país": "Argentina"
+    },
+    "Viedma": {
+        "latitud": -41.1456,
+        "longitud": -71.3082,
+        "país": "Argentina"
+    }
+  }
