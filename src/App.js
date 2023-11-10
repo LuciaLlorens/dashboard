@@ -50,8 +50,8 @@ function App() {
     // Llamada a cargarDatos
     cargarDatos();
 
-    // intervalo para cargar los datos cada 31 segundos
-    const intervalo = setInterval(cargarDatos, 31000);
+    // intervalo para cargar los datos cada media hora
+    const intervalo = setInterval(cargarDatos, 1800000);
 
     // se limpia el intervalo
     return () => clearInterval(intervalo);
