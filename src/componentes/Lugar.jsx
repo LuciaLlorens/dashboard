@@ -1,7 +1,7 @@
 import "../App.css";
 import coordenadasCiudad from "./coordenadasCiudad.json"
 
-function Lugar({ setLugarSeleccionado, lugarSeleccionado }) {
+function Lugar({ setLugarSeleccionado, lugarSeleccionado, esDeDia }) {
   // Actualiza el estado con la opción seleccionada
   const seleccionLugar = (e) => {
     setLugarSeleccionado(e.target.value); 
@@ -20,7 +20,7 @@ function Lugar({ setLugarSeleccionado, lugarSeleccionado }) {
         {/*el nombre de las lineas se muestran en el menú desplegable y los códigos se ponen como valores*/}
         </select>
         {lugarSeleccionado && (
-        <p className="lugarYPais">{lugarSeleccionado}, {coordenadasCiudad[lugarSeleccionado].país}</p>
+        <h3 className={`lugarYPais ${esDeDia ? "lugarDiurno" : "lugarNocturno"}`}>{lugarSeleccionado}, {coordenadasCiudad[lugarSeleccionado].país}</h3>
         )}
     </div>
   );

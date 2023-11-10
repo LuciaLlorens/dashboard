@@ -39,31 +39,31 @@ function App() {
   }, [apiURL, esDeDia]);
 
   return (
-    <div className={`App ${esDeDia ? "diurno" : "nocturno"}`}>
+    <div className={`background ${esDeDia ? "diurno" : "nocturno"}`}>
       <header className="App-header">
         <div className='contenedorPrincipal'>
           <div className='appClima'>
             <div className='arriba'>
-              <Lugar lugarSeleccionado={lugarSeleccionado} setLugarSeleccionado={setLugarSeleccionado}/>
+              <Lugar lugarSeleccionado={lugarSeleccionado} setLugarSeleccionado={setLugarSeleccionado} esDeDia={esDeDia}/>
             </div>
             <div className='izquierdaYDerecha'>
               <div className='izquierda'>
-              {!cargando && <Termometro temperatura={apiData.current_weather.temperature} cargando={cargando}/>}
-              {!cargando && <DiaYHorario time={apiData.current_weather.time} cargando={cargando}/>}
+              {!cargando && <Termometro temperatura={apiData.current_weather.temperature} cargando={cargando} esDeDia={esDeDia}/>}
+              {!cargando && <DiaYHorario time={apiData.current_weather.time} cargando={cargando} esDeDia={esDeDia}/>}
               {!cargando && <Temperaturas temperaturaMaxima={apiData.daily.temperature_2m_max} temperaturaMinima={apiData.daily.temperature_2m_min}
                 unidadMedidaTemperaturaMaxima={apiData.daily_units.temperature_2m_max} unidadMedidaTemperaturaMinima={apiData.daily_units.temperature_2m_min}
-                cargando={cargando}
+                cargando={cargando} esDeDia={esDeDia}
               />}
               </div>
 
               <div className='derecha'>
                 {!cargando && 
                 <div className='aspectosDestacados'> 
-                  <h3 className='tituloAspectosDestacados'> Aspectos destacados </h3>
+                  <h3 className={`tituloAspectosDestacados ${esDeDia ? "destacadoDiurno" : "destacadoNocturno"}`}> Aspectos destacados </h3>
                   <CuadroBloques apiData={apiData} sunrise={apiData.daily.sunrise} sunset={apiData.daily.sunset}
                     precipitation={apiData.hourly.precipitation_probability} relativehumidity_2m={apiData.hourly.relativehumidity_2m}
                     visibility={apiData.hourly.visibility} windspeed={apiData.current_weather.windspeed}
-                    uv_index_max={apiData.hourly.uv_index} cargando={cargando}
+                    uv_index_max={apiData.hourly.uv_index} cargando={cargando} esDeDia={esDeDia}
                     />
                 </div>
                 }
@@ -73,8 +73,8 @@ function App() {
             <div className='abajo'>
               {!cargando &&
               <div className='temperaturaDiaria'> 
-                <h3 className='hoy'> Hoy </h3>
-                 <CuadroTemperatura apiData={apiData} time={apiData.hourly.time} temperature_2m={apiData.hourly.temperature_2m} cargando={cargando}/>
+                <h3 className={`hoy ${esDeDia ? "hoyDiurno" : "hoyNocturno"}`}> Hoy </h3>
+                 <CuadroTemperatura apiData={apiData} time={apiData.hourly.time} temperature_2m={apiData.hourly.temperature_2m} cargando={cargando} esDeDia={esDeDia}/>
               </div>
               }
             </div> 

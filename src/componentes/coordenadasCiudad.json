@@ -49,6 +49,11 @@
         "longitud":175.76237,
         "país":"Nueva Zelanda"
     },
+    "Mendiolaza": {
+      "latitud": -31.26738,
+      "longitud": -64.30087,
+      "país": "Argentina"
+    },
     "Mendoza": {
       "latitud": -32.8895,
       "longitud": -68.8458,
@@ -87,6 +92,11 @@
     "Resistencia": {
       "latitud": -27.4517,
       "longitud": -58.9866,
+      "país": "Argentina"
+    },
+    "Río Ceballos": {
+      "latitud": -31.16486,
+      "longitud": -64.32241,
       "país": "Argentina"
     },
     "Río Gallegos": {
@@ -163,5 +173,10 @@
         "latitud": -41.1456,
         "longitud": -71.3082,
         "país": "Argentina"
+    },
+    "Villa Allende": {
+      "latitud": -31.29458,
+      "longitud": -64.29538,
+      "país": "Argentina"
     }
   }

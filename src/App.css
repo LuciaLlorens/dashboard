@@ -1,20 +1,21 @@
-/* Estilos generales para el fondo */
-.App {
-  min-height: 100vh;
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-size: cover;
   background-position: center;
   transition: background-image 0.5s ease;
 }
 
-/* Estilos para el fondo de día */
-.App.diurno {
+.diurno {
   background-image: url("./img/Ghibli.png");
   background-color: rgb(140, 213, 238);
 }
 
-/* Estilos para el fondo de noche */
-.App.nocturno {
-  background-image: url("./img/GhibliNocturno.png");
+.nocturno {
+  background-image: url("./img/GhibliNocturno3.png");
   background-color: rgb(0, 0, 0);
 }
 
@@ -31,11 +32,7 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch; /* Para que ambas columnas tengan la misma altura */
-  min-height: 100vh;
-  background-color: rgb(140, 213, 238);
-  background-image: url("img/Ghibli.png");
-  background-size: cover;
-  background-position: center center;
+  
 }
 
 .contenedorCargando {
@@ -78,6 +75,22 @@
 .arriba {
   display: flex;
   flex-direction: row;
+  justify-content: space-between; /* Centra horizontalmente los elementos */
+  align-items: center; /* Centra verticalmente los elementos */
+  padding-bottom: 3px; /* Añade espacio alrededor de los elementos */
+}
+
+.lugarYPais {
+  padding-left: 23px;
+  margin: 5px;
+}
+
+.lugarYPais.LugarDiurno {
+  color:#fff;
+}
+
+.lugarYPais.lugarNocturno {
+  color: grey;
 }
 
 .termometro {
@@ -85,6 +98,39 @@
   border-radius: 150px;
   width: 200px;
   height: 200px;
+}
+
+/* Estilos generales para el termómetro */
+.termometro {
+  position: relative;
+}
+
+/* Estilos específicos para el termómetro en modo diurno */
+.termometro.termometroDiurno {
+  opacity: 1; /* Opacidad completa para el modo diurno */
+}
+
+/* Estilos específicos para el termómetro en modo nocturno */
+.termometro.termometroNocturno {
+  opacity: 0.8; /* Ajusta la opacidad según sea necesario para el modo nocturno */
+}
+
+/* Otros estilos específicos para los elementos del termómetro en modo nocturno */
+.termometro.termometroNocturno .circle-temperatura {
+  fill: rgba(255, 165, 0, 0.8); /* Ejemplo: color naranja con opacidad para el modo nocturno */
+}
+
+.termometro.termometroNocturno .text-temperatura {
+  fill: rgba(255, 255, 255, 0.8); /* Ejemplo: color blanco con opacidad para el modo nocturno */
+}
+
+.termometro.termometroNocturno .line-indicadora {
+  stroke: rgba(255, 0, 0, 0.8); /* Ejemplo: color rojo con opacidad para el modo nocturno */
+}
+
+/* Otros estilos específicos para los ticks en modo nocturno */
+.termometro.termometroNocturno line.tick {
+  stroke: rgba(255, 255, 255, 0.8); /* Ejemplo: color blanco con opacidad para el modo nocturno */
 }
 
 .sticker {
@@ -97,14 +143,29 @@
   font-size: 20px;
 }
 
+.díaYHorarioTexto.horarioDiurno {
+  color:#fff;
+}
+
+.díaYHorarioTexto.horarioNocturno {
+  color: grey;
+}
+
 .temperaturas {
-  background-color: rgb(255, 221, 141);
   border-radius: 15px;
   display:flex;
   flex-direction: row;
   color: grey;
   width: 243px; /* Establece el ancho deseado */
   max-width: 100%; /* Limita el ancho máximo */
+}
+
+.temperaturas.temperaturaDiurna {
+  background-color: rgb(255, 221, 141);
+}
+
+.temperaturas.temperaturaNocturna {
+  background-color: rgba(255, 221, 141, 0.881);
 }
 
 .primerCuadro {
@@ -152,6 +213,14 @@
   margin: 0px;
 }
 
+.tituloAspectosDestacados.destacadoDiurno {
+  color:#fff;
+}
+
+.tituloAspectosDestacados.destacadoNocturno {
+  color: grey;
+}
+
 .cuadroBloques {
   display: flex;
   flex-direction: row;
@@ -172,14 +241,22 @@
 .bloques {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
   border-radius: 10px;
   margin: 5px;
   text-align: center;
   color: rgb(0, 136, 255);
   width: 144px;
   height: 112px;
+}
+
+.bloques.bloqueDiurno {
+  background-color: #fff;
   border: 4px solid rgb(255, 221, 141);
+}
+
+.bloques.bloqueNocturno {
+  background-color: #ffffffb7;
+  border: 4px solid rgba(255, 221, 141, 0.659);
 }
 
 .titulosBloques {
@@ -191,6 +268,7 @@
 p {
   margin: 5px;
 }
+
 .columnasSol {
   display: flex;
   flex-direction: row;
@@ -224,6 +302,14 @@ p {
   margin-top: -5px;
 }
 
+.hoy.hoyDiurno {
+  color:#fff;
+}
+
+.hoy.hoyNocturno {
+  color: grey;
+}
+
 .cuadroTemperatura {
   display: flex;
   justify-content: center; /* Centra horizontalmente */
@@ -241,9 +327,9 @@ p {
 }
 
 .labelSeleccion {
-  color: #fff;
   font-size: 1.17em;
   font-weight: bold;
+  color: #fff;
 }
 
 .mapa{
@@ -260,9 +346,3 @@ p {
   height: 100%;
 }
 
-/* Estilos específicos para componentes en el modo oscuro (noche) */
-.App.nocturno.cuadroTemperatura {
-  background-color: #222; /* Cambia el fondo a un color oscuro */
-  color: #fff; /* Cambia el color de texto a blanco */
-  /* ... Otros estilos para el modo oscuro */
-}

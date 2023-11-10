@@ -2,14 +2,14 @@ import "../App.css";
 import Dia from "../img/Dia.svg";
 import Noche from "../img/Noche.svg";
 
-function Temperaturas({temperaturaMaxima, temperaturaMinima, unidadMedidaTemperaturaMaxima, unidadMedidaTemperaturaMinima, cargando}) {
+function Temperaturas({temperaturaMaxima, temperaturaMinima, unidadMedidaTemperaturaMaxima, unidadMedidaTemperaturaMinima, cargando, esDeDia}) {
     if (cargando) {
         return (
               <h2>Cargando</h2>
         )
   } else {
     return (
-        <div className='temperaturas'>
+        <div className={`temperaturas ${esDeDia ? "temperaturaDiurna" : "temperaturaNocturna"}`}>
             <div className="primerCuadro">
                 <div className="primeraLinea">
                     <div className='temperaturaMaxima'>{temperaturaMaxima}{unidadMedidaTemperaturaMaxima}</div>

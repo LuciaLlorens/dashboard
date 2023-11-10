@@ -1,6 +1,6 @@
 import "../App.css";
 
-function Termometro({ temperatura, cargando }) {
+function Termometro({ temperatura, cargando, esDeDia }) {
       // defino unos auxiliares que van a permitir la conversión de temperatura a angulos para poder graficar en el svg. 
       // Las formulas fueron aportadas por ChatGPT
       const minTemperatura = -20; // Temperatura mínima en el rango
@@ -29,7 +29,7 @@ function Termometro({ temperatura, cargando }) {
       } else {
            return (
             <>
-            <svg className="termometro" width="400" height="400" viewBox="0 0 400 400">
+            <svg className={`termometro ${esDeDia ? "termometroDiurno" : "termometroNocturno"}`} width="400" height="400" viewBox="0 0 400 400">
                   <circle cx="200" cy="200" r="100" fill="transparent" stroke="grey" stroke-width="5"/>
                   <circle cx="200" cy="200" r="150" fill="transparent" stroke="grey" stroke-width="20"/>
                   <path d={`M 93.934 306.066 A 150 150 0 ${auxiliarPath} 1 ${xFinal} ${yFinal}`} fill="none" stroke="rgb(0, 136, 255)" stroke-width="20" stroke-linecap="round"/>

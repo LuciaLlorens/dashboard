@@ -1,7 +1,7 @@
 import "../App.css";
 import ParcialmenteNubladoYNeblinoso from '../img/ParcialmenteNubladoYNeblinoso.svg';
 
-function DiaYHorario({time, cargando}) {
+function DiaYHorario({time, cargando, esDeDia}) {
     //Obtengo fecha de api.json
     const fecha = new Date(time);
     //Defino los nombres de los días de la semana
@@ -20,9 +20,9 @@ function DiaYHorario({time, cargando}) {
         )
   } else {
     return (
-        <div className='díaYHorario'>
+        <div className="díaYHorario">
             <img className='sticker' src={ParcialmenteNubladoYNeblinoso} alt="parcialmente nublado y neblinoso"></img>
-            <div className='díaYHorarioTexto'> {nombreDiaSemana}, {hora}:{minutos < 10 ? '0' : ''}{minutos}</div>
+            <div className={`díaYHorarioTexto ${esDeDia ? "horarioDiurno" : "horarioNocturno"}`}> {nombreDiaSemana}, {hora}:{minutos < 10 ? '0' : ''}{minutos}</div>
         </div>
     );
   } 

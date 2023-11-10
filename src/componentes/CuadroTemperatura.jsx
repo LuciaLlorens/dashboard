@@ -51,22 +51,47 @@ const options = {
   };
   
 // defino las variables que llevan el eje x y el eje y
-function CuadroTemperatura({time, temperature_2m , cargando}) {
+function CuadroTemperatura({time, temperature_2m , cargando, esDeDia}) {
   const lista = time;
   const horas = lista.map((i) => i.slice(11,16));
   const temperaturas = temperature_2m;
+
+  const colorLabel = esDeDia ? "black" : "white"; // Color de las etiquetas
+  const colorTicks = esDeDia ? "black" : "white"; // Color de los ticks
+  const colorBarras = esDeDia ? "rgb(245, 182, 35)" : "rgba(255, 221, 141, 0.659)"; // Color de las barras
+
   const data = {
     labels: horas,
-
     datasets: [
       {
         label: "Temperatura",
         data: temperaturas,
-        borderColor: "rgb(245, 182, 35)",
-        backgroundColor: "rgb(245, 182, 35)",
+        borderColor: colorBarras,
+        backgroundColor: colorBarras,
         fill: true,
       },
     ],
+  };
+
+  const dynamicOptions = {
+    ...options,
+    scales: {
+      ...options.scales,
+      x: {
+        ...options.scales.x,
+        ticks: {
+          ...options.scales.x.ticks,
+          color: colorTicks,
+        },
+      },
+      y: {
+        ...options.scales.y,
+        ticks: {
+          ...options.scales.y.ticks,
+          color: colorTicks,
+        },
+      },
+    },
   };
 
   if (cargando) {
@@ -74,7 +99,7 @@ function CuadroTemperatura({time, temperature_2m , cargando}) {
   } else {
     return (
         <div className='cuadroTemperatura'>
-            <Bar data={data} options={options} />
+            <Bar data={data} options={dynamicOptions} />
         </div>
     );
   }
