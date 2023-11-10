@@ -1,19 +1,20 @@
 {
   "files": {
-    "main.css": "/dashboard/static/css/main.d619cb1a.css",
-    "main.js": "/dashboard/static/js/main.9c31b773.js",
+    "main.css": "/dashboard/static/css/main.64a7ae08.css",
+    "main.js": "/dashboard/static/js/main.511892a9.js",
     "static/js/787.545aecf5.chunk.js": "/dashboard/static/js/787.545aecf5.chunk.js",
     "static/media/Ghibli.png": "/dashboard/static/media/Ghibli.75dba080d522cd00f187.png",
+    "static/media/GhibliNocturno.png": "/dashboard/static/media/GhibliNocturno.33f987fcbc7c2c1f7c83.png",
     "static/media/ParcialmenteNubladoYNeblinoso.svg": "/dashboard/static/media/ParcialmenteNubladoYNeblinoso.8c1766876ac3f23dbc4839d0226f602c.svg",
     "index.html": "/dashboard/index.html",
     "static/media/Dia.svg": "/dashboard/static/media/Dia.4c82810e685aca17144a40289b509a6c.svg",
     "static/media/Noche.svg": "/dashboard/static/media/Noche.439f475ce1c653f43b03167072432f51.svg",
-    "main.d619cb1a.css.map": "/dashboard/static/css/main.d619cb1a.css.map",
-    "main.9c31b773.js.map": "/dashboard/static/js/main.9c31b773.js.map",
+    "main.64a7ae08.css.map": "/dashboard/static/css/main.64a7ae08.css.map",
+    "main.511892a9.js.map": "/dashboard/static/js/main.511892a9.js.map",
     "787.545aecf5.chunk.js.map": "/dashboard/static/js/787.545aecf5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d619cb1a.css",
-    "static/js/main.9c31b773.js"
+    "static/css/main.64a7ae08.css",
+    "static/js/main.511892a9.js"
   ]
 }
