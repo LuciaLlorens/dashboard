@@ -1,9 +1,9 @@
 import "../App.css";
 import ParcialmenteNubladoYNeblinoso from '../img/ParcialmenteNubladoYNeblinoso.svg';
 
-function DiaYHorario({time, cargando, esDeDia}) {
+function DiaYHorario({cargando, esDeDia, tiempoLugar}) {
     //Obtengo fecha de api.json
-    const fecha = new Date(time);
+    const fecha = new Date(tiempoLugar);
     //Defino los nombres de los días de la semana
     const diasSemana = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
     //Obtengo el número del día de la semana (0 = Domingo, 1 = Lunes, etc.)

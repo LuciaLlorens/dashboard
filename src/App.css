@@ -1,3 +1,4 @@
+/* Estilos de la app completa */
 .background {
   position: fixed;
   top: 0;
@@ -9,6 +10,7 @@
   transition: background-image 0.5s ease;
 }
 
+/*Estas son modificaciones para el background en el caso de si es de día o de noche*/
 .diurno {
   background-image: url("./img/Ghibli.png");
   background-color: rgb(140, 213, 238);
@@ -31,8 +33,7 @@
 .contenedorPrincipal {
   display: flex;
   justify-content: space-between;
-  align-items: stretch; /* Para que ambas columnas tengan la misma altura */
-  
+  align-items: stretch; /* Para que ambas columnas tengan la misma altura */ 
 }
 
 .contenedorCargando {
@@ -64,20 +65,13 @@
   margin: 0px;
 }
 
-.izquierda {
-  display: flex;
-  margin-right: 50px;
-  flex-direction: column;
-  width: 250px;
-  height: 417px;
-}
-
+/* en app clima arriba*/
 .arriba {
   display: flex;
   flex-direction: row;
   justify-content: space-between; /* Centra horizontalmente los elementos */
   align-items: center; /* Centra verticalmente los elementos */
-  padding-bottom: 3px; /* Añade espacio alrededor de los elementos */
+  padding-bottom: 3px; /* Añade espacio abajo */
 }
 
 .lugarYPais {
@@ -93,6 +87,15 @@
   color: grey;
 }
 
+/*En app clima a la izquierda*/
+.izquierda {
+  display: flex;
+  margin-right: 50px;
+  flex-direction: column;
+  width: 250px;
+  height: 417px;
+}
+
 .termometro {
   border: 6px solid rgb(245, 182, 35);
   border-radius: 150px;
@@ -100,37 +103,33 @@
   height: 200px;
 }
 
-/* Estilos generales para el termómetro */
 .termometro {
   position: relative;
 }
 
-/* Estilos específicos para el termómetro en modo diurno */
 .termometro.termometroDiurno {
   opacity: 1; /* Opacidad completa para el modo diurno */
 }
 
-/* Estilos específicos para el termómetro en modo nocturno */
 .termometro.termometroNocturno {
-  opacity: 0.8; /* Ajusta la opacidad según sea necesario para el modo nocturno */
+  opacity: 0.8;
 }
 
-/* Otros estilos específicos para los elementos del termómetro en modo nocturno */
 .termometro.termometroNocturno .circle-temperatura {
-  fill: rgba(255, 165, 0, 0.8); /* Ejemplo: color naranja con opacidad para el modo nocturno */
+  fill: rgba(255, 165, 0, 0.8); /* color naranja con opacidad */
 }
 
 .termometro.termometroNocturno .text-temperatura {
-  fill: rgba(255, 255, 255, 0.8); /* Ejemplo: color blanco con opacidad para el modo nocturno */
+  fill: rgba(255, 255, 255, 0.8);
 }
 
 .termometro.termometroNocturno .line-indicadora {
-  stroke: rgba(255, 0, 0, 0.8); /* Ejemplo: color rojo con opacidad para el modo nocturno */
+  stroke: rgba(255, 0, 0, 0.8);
 }
 
-/* Otros estilos específicos para los ticks en modo nocturno */
+
 .termometro.termometroNocturno line.tick {
-  stroke: rgba(255, 255, 255, 0.8); /* Ejemplo: color blanco con opacidad para el modo nocturno */
+  stroke: rgba(255, 255, 255, 0.8);
 }
 
 .sticker {
@@ -201,6 +200,7 @@
   width: 50px;
 }
 
+/*En app clima a la derecha*/
 .derecha {
   margin-left: 5px;
   margin: 0px;
@@ -235,7 +235,7 @@
 .segundaFila {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Espacio entre los bloques y los bordes */
+  justify-content: space-between;
 }
 
 .bloques {
@@ -297,6 +297,7 @@ p {
   padding: 2px;
 }
 
+/*En app clima abajo*/
 .hoy {
   margin: 5px;
   margin-top: -5px;
@@ -312,13 +313,13 @@ p {
 
 .cuadroTemperatura {
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
+  justify-content: center;
+  align-items: center;
   height: 220px;
   margin-right: 145px;
 }
 
-/* Estilos para la columna de la App de Transporte */
+/* Estilos para la columna de la App de Transporte a la derecha*/
 .appTransporte {
   flex: 1; /* Ocupa el espacio disponible en la mitad derecha */
   padding: 20px; /* Añade un poco de espacio entre el contenido y los bordes */

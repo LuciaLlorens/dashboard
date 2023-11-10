@@ -6,6 +6,7 @@ function Lugar({ setLugarSeleccionado, lugarSeleccionado, esDeDia }) {
   const seleccionLugar = (e) => {
     setLugarSeleccionado(e.target.value); 
     console.log(e.target.value);
+    console.log('Cambiando a:', lugarSeleccionado);
   };
 
   return (
